@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SolarTSS - Site Survey Especializado</title>
+    <title>SolarTSS - Site Survey Profesional</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-100 text-slate-800 font-sans">
@@ -71,7 +71,7 @@
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-600 mb-1">Requerimiento Inicial del Cliente</label>
-                            <textarea id="requerimiento_inicial" class="w-full border rounded p-2 bg-slate-50 text-sm target-save" rows="2" placeholder="Sistema solar de inyección para cubrir consumo actual..."></textarea>
+                            <textarea id="requerimiento_inicial" class="w-full border rounded p-2 bg-slate-50 text-sm target-save" rows="2" placeholder="Descripción..."></textarea>
                         </div>
                     </div>
                 </div>
@@ -81,49 +81,49 @@
                     <div class="space-y-3">
                         <div class="p-2 bg-slate-50 rounded border">
                             <label class="block text-xs font-bold text-slate-700">Tipo de tejado / cubierta</label>
-                            <input type="text" id="tipo_cubierta" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="Teja termoacústica, losa, teja de barro...">
+                            <input type="text" id="tipo_cubierta" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="Teja, losa...">
                             <input type="text" id="nota_tipo_tejado" class="w-full border rounded p-1 mt-1 text-xs bg-white target-save" placeholder="Agregar Notas Adicionales">
                         </div>
                         <div class="p-2 bg-slate-50 rounded border">
                             <label class="block text-xs font-bold text-slate-700">Altura de la cubierta (Faldón, alero y cumbrera)</label>
-                            <input type="text" id="altura_cubierta" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="Ej. Altura 6 metros, alero accesible">
+                            <input type="text" id="altura_cubierta" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="Altura aproximada">
                             <input type="text" id="nota_altura_cubierta" class="w-full border rounded p-1 mt-1 text-xs bg-white target-save" placeholder="Agregar Notas Adicionales">
                         </div>
                         <div class="p-2 bg-slate-50 rounded border">
                             <label class="block text-xs font-bold text-slate-700">Soporte propuesto para instalación</label>
-                            <input type="text" id="soporte_propuesto" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="Estructura de aluminio coplanar, triángulos de inclinación...">
+                            <input type="text" id="soporte_propuesto" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="Estructura propuesta">
                             <input type="text" id="nota_soporte" class="w-full border rounded p-1 mt-1 text-xs bg-white target-save" placeholder="Agregar Notas Adicionales">
                         </div>
                         <div class="grid grid-cols-2 gap-2">
                             <div class="p-2 bg-slate-50 rounded border">
                                 <label class="block text-xs font-bold text-slate-700">Tipo de correa y distancia</label>
-                                <input type="text" id="tipo_correa" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="C en perlin, dist 1.2m">
+                                <input type="text" id="tipo_correa" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="Correas">
                                 <input type="text" id="nota_correa" class="w-full border rounded p-1 mt-1 text-xs bg-white target-save" placeholder="Notas">
                             </div>
                             <div class="p-2 bg-slate-50 rounded border">
                                 <label class="block text-xs font-bold text-slate-700">Inclinación y Orientación</label>
-                                <input type="text" id="inclinacion" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="Ej: 12° al Sur">
+                                <input type="text" id="inclinacion" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="Inclinación">
                                 <input type="text" id="nota_inclinacion" class="w-full border rounded p-1 mt-1 text-xs bg-white target-save" placeholder="Notas">
                             </div>
                         </div>
                         <div class="p-2 bg-slate-50 rounded border">
                             <label class="block text-xs font-bold text-slate-700">Disponibilidad de acceso a cubierta</label>
-                            <input type="text" id="acceso_cubierta" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="Escalera gato existente, requiere andamios...">
+                            <input type="text" id="acceso_cubierta" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="Acceso">
                             <input type="text" id="nota_acceso" class="w-full border rounded p-1 mt-1 text-xs bg-white target-save" placeholder="Agregar Notas Adicionales">
                         </div>
                         <div class="p-2 bg-slate-50 rounded border">
-                            <label class="block text-xs font-bold text-slate-700">Medio de traslado para paneles a cubierta</label>
-                            <input type="text" id="medio_traslado" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="Izado manual, pluma, grúa externa...">
+                            <label class="block text-xs font-bold text-slate-700">Medio de traslado para paneles</label>
+                            <input type="text" id="medio_traslado" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="Izado">
                             <input type="text" id="nota_traslado" class="w-full border rounded p-1 mt-1 text-xs bg-white target-save" placeholder="Agregar Notas Adicionales">
                         </div>
                         <div class="p-2 bg-slate-50 rounded border">
                             <label class="block text-xs font-bold text-slate-700">Obstáculos que generen sombreado</label>
-                            <input type="text" id="obstaculos_sombra" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="Árboles perimetrales, chimeneas, edificios colindantes...">
+                            <input type="text" id="obstaculos_sombra" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="Sombras">
                             <input type="text" id="nota_obstaculos" class="w-full border rounded p-1 mt-1 text-xs bg-white target-save" placeholder="Agregar Notas Adicionales">
                         </div>
                         <div class="p-2 bg-slate-50 rounded border">
                             <label class="block text-xs font-bold text-slate-700">Líneas de vida para TSA / Caminaderos</label>
-                            <input type="text" id="lineas_vida" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="No existen líneas de vida, requiere caminaderos de losa...">
+                            <input type="text" id="lineas_vida" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="Seguridad">
                             <input type="text" id="nota_lineas" class="w-full border rounded p-1 mt-1 text-xs bg-white target-save" placeholder="Agregar Notas Adicionales">
                         </div>
                     </div>
@@ -145,30 +145,30 @@
                             </div>
                             <div class="p-2 bg-slate-50 rounded border">
                                 <label class="block text-xs font-bold text-slate-700">Breaker Principal</label>
-                                <input type="text" id="breaker_principal" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="Ej. 3x150A Caja Moldeada">
+                                <input type="text" id="breaker_principal" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="Totalizador">
                                 <input type="text" id="nota_breaker" class="w-full border rounded p-1 mt-1 text-xs bg-white target-save" placeholder="Notas">
                             </div>
                         </div>
                         <div class="p-2 bg-slate-50 rounded border">
-                            <label class="block text-xs font-bold text-slate-700">Disponibilidad de espacio para Inversores</label>
-                            <input type="text" id="espacio_inversores" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="Muro libre en cuarto técnico de 2x2m...">
+                            <label class="block text-xs font-bold text-slate-700">Espacio para Inversores</label>
+                            <input type="text" id="espacio_inversores" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="Espacio muros">
                             <input type="text" id="nota_espacio_inv" class="w-full border rounded p-1 mt-1 text-xs bg-white target-save" placeholder="Agregar Notas Adicionales">
                         </div>
                         <div class="grid grid-cols-2 gap-2">
                             <div class="p-2 bg-slate-50 rounded border">
                                 <label class="block text-xs font-bold text-slate-700">Distancia Campo FV a Inversor</label>
-                                <input type="text" id="distancia_dc" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="Ej. 25 metros">
+                                <input type="text" id="distancia_dc" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="Metros DC">
                                 <input type="text" id="nota_distancia_dc" class="w-full border rounded p-1 mt-1 text-xs bg-white target-save" placeholder="Notas">
                             </div>
                             <div class="p-2 bg-slate-50 rounded border">
                                 <label class="block text-xs font-bold text-slate-700">Distancia Inversor a Conexión AC</label>
-                                <input type="text" id="distancia_ac" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="Ej. 8 metros">
+                                <input type="text" id="distancia_ac" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="Metros AC">
                                 <input type="text" id="nota_distancia_ac" class="w-full border rounded p-1 mt-1 text-xs bg-white target-save" placeholder="Notas">
                             </div>
                         </div>
                         <div class="p-2 bg-slate-50 rounded border">
                             <label class="block text-xs font-bold text-slate-700">Disponibilidad de espacio para SPT</label>
-                            <input type="text" id="espacio_spt" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="Zona verde a 3 metros del tablero para hincar puestas a tierra...">
+                            <input type="text" id="espacio_spt" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="Tierra">
                             <input type="text" id="nota_spt" class="w-full border rounded p-1 mt-1 text-xs bg-white target-save" placeholder="Agregar Notas Adicionales">
                         </div>
                         <div class="grid grid-cols-2 gap-2">
@@ -183,7 +183,7 @@
                             </div>
                             <div class="p-2 bg-slate-50 rounded border">
                                 <label class="block text-xs font-bold text-slate-700">Horarios y Requisitos Ingreso</label>
-                                <input type="text" id="horarios_requisitos" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="L-V 8am-5pm. Requiere ARL">
+                                <input type="text" id="horarios_requisitos" class="w-full border rounded p-1.5 mt-1 bg-white target-save" placeholder="Requisitos">
                                 <input type="text" id="nota_horarios" class="w-full border rounded p-1 mt-1 text-xs bg-white target-save" placeholder="Notas">
                             </div>
                         </div>
@@ -191,8 +191,8 @@
                 </div>
 
                 <div class="bg-white rounded-xl border-2 border-slate-200 p-4 space-y-4 shadow-sm">
-                    <h3 class="font-bold text-base text-blue-900 uppercase tracking-wide border-b pb-2 border-slate-100">📸 Pestaña Fotos (Multi-Foto y Galería Abierta)</h3>
-                    <p class="text-xs text-slate-500 bg-blue-50 p-2 rounded">💡 Puedes presionar repetidamente el botón para cargar **hasta 5 fotografías diferentes** por ítem. Se abrirá la galería o la cámara según desees.</p>
+                    <h3 class="font-bold text-base text-blue-900 uppercase tracking-wide border-b pb-2 border-slate-100">📸 Registro Fotográfico (Hasta 5 Fotos por Ítem)</h3>
+                    <p class="text-xs text-slate-500 bg-blue-50 p-2 rounded">💡 El botón te dará a elegir nativamente entre usar tu <b>Cámara</b> o tu <b>Galería</b>. Puedes cargar hasta 5 fotos por cada concepto.</p>
                     
                     <div id="contenedor-fotos-dinamicas" class="space-y-4">
                         </div>
@@ -225,7 +225,6 @@
 const URL_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbzU0-z7BY3wP1BUXZUS06JzL7gQ-ydpXmK-hZjWiXDQsrKZp8i7v6mv2HbepXTjHTBbqg/exec";
 const PASS_CORRECTA = "ZuttaSolar2026*"; 
 
-// Listado exacto de los 23 items definidos en tu libro "Fotos"
 const ITEMS_FOTOGRAFICOS = [
   "Vista Exterior del Predio", "Acceso al predio", "Ingreso al predio", "Nomenclatura", 
   "Ingreso acometida comercial", "Calibre acometida comercial", "Medidor", "Niveles de tensión del cliente", 
@@ -236,7 +235,6 @@ const ITEMS_FOTOGRAFICOS = [
   "Vista Aérea General", "Vista Aérea Ubicación de Módulos", "Otros (Tablero/Planta Eléctrica)"
 ];
 
-// Matriz de almacenamiento de imágenes indexadas por [item_index][foto_index]
 let bancoFotosBase64 = {};
 let documentosUnicos = { foto_diagrama: "", foto_viabilidad: "" };
 
@@ -257,7 +255,6 @@ function inicializarFormulario() {
     }
     document.getElementById("id_visita").value = localStorage.getItem("id_visita");
     
-    // Auto-recuperación de campos técnicos normales
     document.querySelectorAll('.target-save').forEach(input => {
         const valorGuardado = localStorage.getItem(input.id);
         if (valorGuardado) input.value = valorGuardado;
@@ -288,19 +285,20 @@ function obtenerUbicacion() {
     }
 }
 
-// Inyección dinámica de los componentes de carga (Se quitó el capture="environment" para habilitar la galería)
 function renderizarCamposFotos() {
     const contenedor = document.getElementById("contenedor-fotos-dinamicas");
     contenedor.innerHTML = "";
 
     ITEMS_FOTOGRAFICOS.forEach((nombreItem, indexItem) => {
-        bancoFotosBase64[indexItem] = ["", "", "", "", ""]; // Inicializar espacio para hasta 5 fotos
+        bancoFotosBase64[indexItem] = ["", "", "", "", ""]; 
 
         const wrapper = document.createElement("div");
         wrapper.className = "p-3 bg-slate-50 border rounded-lg space-y-2 shadow-inner";
+        
+        // El truco para activar menú híbrido en móviles es un input limpio con accept="image/*" sin modificadores restrictivos directos
         wrapper.innerHTML = `
             <label class="block text-xs font-bold text-slate-800 uppercase tracking-wider">${indexItem + 1}. ${nombreItem}</label>
-            <input type="file" accept="image/*" onchange="procesarColaFotos(${indexItem}, this)" class="w-full text-xs text-slate-600 file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:text-xs file:font-bold file:bg-slate-300 file:text-slate-800">
+            <input type="file" accept="image/*" onchange="procesarColaFotos(${indexItem}, this)" class="w-full text-xs text-slate-600 file:mr-2 file:py-1.5 file:px-3 file:rounded file:border-0 file:text-xs file:font-bold file:bg-blue-900 file:text-white">
             <div id="galeria-prev-${indexItem}" class="flex gap-1.5 flex-wrap pt-1"></div>
         `;
         contenedor.appendChild(wrapper);
@@ -311,10 +309,9 @@ function procesarColaFotos(indexItem, inputElement) {
     if (inputElement.files.length === 0) return;
     const file = inputElement.files[0];
     
-    // Buscar la primera posición libre en la cola de 5 imágenes para ese ítem
     let indiceLibre = bancoFotosBase64[indexItem].findIndex(slot => slot === "");
     if (indiceLibre === -1) {
-        alert("⚠️ Has alcanzado el límite máximo de 5 fotografías para el ítem:\n" + ITEMS_FOTOGRAFICOS[indexItem]);
+        alert("⚠️ Límite de 5 fotos alcanzado para este ítem.");
         inputElement.value = "";
         return;
     }
@@ -324,23 +321,16 @@ function procesarColaFotos(indexItem, inputElement) {
         const img = new Image();
         img.onload = function() {
             const canvas = document.createElement('canvas');
-            let width = img.width;
-            let height = img.height;
-            
-            // Compresión adaptativa a 1200px para control de cuota en Drive
+            let width = img.width; let height = img.height;
             if (width > 1200) { height *= 1200 / width; width = 1200; }
-            canvas.width = width;
-            canvas.height = height;
+            canvas.width = width; canvas.height = height;
             
             const ctx = canvas.getContext('2d');
             ctx.drawImage(img, 0, 0, width, height);
             
-            const dataURL = canvas.toDataURL('image/jpeg', 0.75);
-            bancoFotosBase64[indexItem][indiceLibre] = dataURL.split(',')[1];
-            
+            bancoFotosBase64[indexItem][indiceLibre] = canvas.toDataURL('image/jpeg', 0.75).split(',')[1];
             actualizarMiniaturasVista(indexItem);
             alertarAutoguardado();
-            inputElement.value = ""; // Limpiar input para permitir cargas continuas del mismo archivo
         }
         img.src = e.target.result;
     }
@@ -354,7 +344,7 @@ function actualizarMiniaturasVista(indexItem) {
     bancoFotosBase64[indexItem].forEach((base64Text, idx) => {
         if (base64Text !== "") {
             const miniatura = document.createElement("div");
-            miniatura.className = "relative bg-emerald-100 text-emerald-800 border border-emerald-300 px-2 py-1 rounded text-[10px] font-bold flex items-center gap-1";
+            miniatura.className = "bg-emerald-100 text-emerald-800 border border-emerald-300 px-2 py-1 rounded text-[10px] font-bold flex items-center gap-1";
             miniatura.innerHTML = `
                 <span>Foto ${idx + 1}</span>
                 <button type="button" onclick="eliminarFotoEspecifica(${indexItem}, ${idx})" class="text-red-600 hover:text-red-800 font-extrabold ml-1">×</button>
@@ -396,11 +386,10 @@ async function enviarFormulario(event) {
     event.preventDefault();
     const btn = document.getElementById("btnEnviar");
     btn.disabled = true;
-    btn.innerText = "Empaquetando Levantamiento Técnico...";
+    btn.innerText = "Empaquetando datos...";
 
     const formData = new URLSearchParams();
     
-    // Mapear campos de texto e inputs de control
     const inputsText = [
         "id_visita", "cliente", "nit_cc", "direccion", "ciudad_depto", 
         "contacto_recibe", "contacto_info", "funcionario_visita", "gps", "requerimiento_inicial",
@@ -417,7 +406,6 @@ async function enviarFormulario(event) {
         if (el) formData.append(id, el.value);
     });
     
-    // Mapear el banco de fotografías multidimensional (Mapeo plano estructurado para Code.gs)
     ITEMS_FOTOGRAFICOS.forEach((_, indexItem) => {
         for (var k = 0; k < 5; k++) {
             var campoLlave = "foto_" + indexItem + "_" + (k + 1);
@@ -426,9 +414,8 @@ async function enviarFormulario(event) {
         }
     });
     
-    // Mapear los documentos gráficos de soporte
-    formData.append("foto_diagrama", documentosUnicos.foto_diagrama);
-    formData.append("foto_viabilidad", documentosUnicos.foto_viabilidad);
+    formData.append("foto_diagrama", documentosUnicos.foto_diagrama || "");
+    formData.append("foto_viabilidad", documentosUnicos.foto_viabilidad || "");
 
     btn.innerText = "Sincronizando con Google Cloud...";
 
@@ -444,7 +431,7 @@ async function enviarFormulario(event) {
         const resJson = JSON.parse(resText);
         
         if (resJson.status === "success") {
-            alert("🚀 ¡Sincronización Exitosa!\n\nSe ha creado el libro estructurado FO-INDE-012 con sus carpetas asociadas y renderizado de imágenes.");
+            alert("🚀 ¡Sincronización Exitosa!\n\nSe ha creado el libro estructurado con sus 4 pestañas y renderizado de imágenes.");
             localStorage.clear();
             window.location.reload();
         } else {
