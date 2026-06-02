@@ -181,36 +181,36 @@ function procesarFoto(tipo, input) {
     reader.readAsDataURL(file);
 }
 
-// FIX: Declarada correctamente como función asíncrona estándar
 async function enviarFormulario(event) {
     event.preventDefault();
     const btn = document.getElementById("btnEnviar");
     btn.disabled = true;
     btn.innerText = "Sincronizando con Google...";
 
-    const payload = {
-        id_visita: document.getElementById("id_visita").value,
-        tipo_instalacion: document.getElementById("tipo_instalacion").value,
-        cliente: document.getElementById("cliente").value,
-        direccion: document.getElementById("direccion").value,
-        gps: document.getElementById("gps").value,
-        tipo_cubierta: document.getElementById("tipo_cubierta").value,
-        inclinacion: document.getElementById("inclinacion").value,
-        tipo_red: document.getElementById("tipo_red").value,
-        breaker_principal: document.getElementById("breaker_principal").value,
-        fotos: [
-            { nombre: "recibo.jpg", bytes: fotosBase64.recibo },
-            { nombre: "tablero.jpg", bytes: fotosBase64.tablero },
-            { nombre: "techo.jpg", bytes: fotosBase64.techo }
-        ]
-    };
+    // Creamos el contenedor nativo que Google Apps Script procesa sin fallos
+    const formData = new URLSearchParams();
+    formData.append("id_visita", document.getElementById("id_visita").value);
+    formData.append("tipo_instalacion", document.getElementById("tipo_instalacion").value);
+    formData.append("cliente", document.getElementById("cliente").value);
+    formData.append("direccion", document.getElementById("direccion").value);
+    formData.append("gps", document.getElementById("gps").value);
+    formData.append("tipo_cubierta", document.getElementById("tipo_cubierta").value);
+    formData.append("inclinacion", document.getElementById("inclinacion").value);
+    formData.append("tipo_red", document.getElementById("tipo_red").value);
+    formData.append("breaker_principal", document.getElementById("breaker_principal").value);
+    
+    // Inyectamos las fotos codificadas directamente al formulario
+    formData.append("foto_recibo", fotosBase64.recibo);
+    formData.append("foto_tablero", fotosBase64.tablero);
+    formData.append("foto_techo", fotosBase64.techo);
 
-try {
-        // Enviamos el payload directamente como texto plano para burlar el CORS sin que se rompa el JSON
+    try {
+        // Ejecutamos el envío estándar compatible con todas las redes móviles
         await fetch(URL_APPS_SCRIPT, {
             method: 'POST',
             mode: 'no-cors',
-            body: JSON.stringify(payload)
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: formData.toString()
         });
         
         alert("¡Levantamiento guardado con éxito en Google!");
@@ -221,8 +221,7 @@ try {
         btn.disabled = false;
         btn.innerText = "🚀 Finalizar y Enviar a Google";
     }
-}
-    
+}    
     </script>
 </body>
 </html>
