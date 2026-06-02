@@ -71,7 +71,7 @@
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-600 mb-1">Requerimiento Inicial del Cliente</label>
-                            <textarea id="requerimiento_inicial" class="w-full border rounded p-2 bg-slate-50 text-sm target-save" rows="2" placeholder="Descripción..."></textarea>
+                            <textarea id="requerimiento_inicial" class="w-full border rounded p-2 bg-slate-50 text-sm target-save" rows="2" placeholder="Descripción del requerimiento..."></textarea>
                         </div>
                     </div>
                 </div>
@@ -192,7 +192,7 @@
 
                 <div class="bg-white rounded-xl border-2 border-slate-200 p-4 space-y-4 shadow-sm">
                     <h3 class="font-bold text-base text-blue-900 uppercase tracking-wide border-b pb-2 border-slate-100">📸 Registro Fotográfico (Hasta 5 Fotos por Ítem)</h3>
-                    <p class="text-xs text-slate-500 bg-blue-50 p-2 rounded">💡 El botón te dará a elegir nativamente entre usar tu <b>Cámara</b> o tu <b>Galería</b>. Puedes cargar hasta 5 fotos por cada concepto.</p>
+                    <p class="text-xs text-slate-500 bg-blue-50 p-2 rounded">💡 Elige cómodamente el botón según lo que requieras hacer en el momento.</p>
                     
                     <div id="contenedor-fotos-dinamicas" class="space-y-4">
                         </div>
@@ -203,14 +203,24 @@
                     
                     <div class="p-3 bg-slate-50 rounded border space-y-2">
                         <label class="block text-sm font-bold text-slate-800">Diagrama General de Montaje (A mano alzada o Plano)</label>
-                        <input type="file" accept="image/*" onchange="procesarFotoUnica('foto_diagrama', this)" class="w-full text-sm text-slate-600 file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-blue-900 file:text-white">
-                        <div id="prev_foto_diagrama" class="text-xs text-emerald-600 font-bold hidden">✓ Archivo cargado en memoria</div>
+                        <div class="flex gap-2 mb-1">
+                            <button type="button" onclick="document.getElementById('file_diag_cam').click()" class="flex-1 text-xs bg-blue-900 text-white p-2 rounded font-bold">📸 Tomar Foto</button>
+                            <button type="button" onclick="document.getElementById('file_diag_gal').click()" class="flex-1 text-xs bg-slate-500 text-white p-2 rounded font-bold">📁 Galería</button>
+                        </div>
+                        <input type="file" id="file_diag_cam" accept="image/*" capture="environment" onchange="procesarFotoUnica('foto_diagrama', this)" class="hidden">
+                        <input type="file" id="file_diag_gal" accept="image/*" onchange="procesarFotoUnica('foto_diagrama', this)" class="hidden">
+                        <div id="prev_foto_diagrama" class="text-xs text-emerald-600 font-bold hidden">✓ Diagrama cargado en memoria</div>
                     </div>
 
                     <div class="p-3 bg-slate-50 rounded border space-y-2">
                         <label class="block text-sm font-bold text-slate-800">Viabilidad del Transformador / Operador de Red</label>
-                        <input type="file" accept="image/*" onchange="procesarFotoUnica('foto_viabilidad', this)" class="w-full text-sm text-slate-600 file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-blue-900 file:text-white">
-                        <div id="prev_foto_viabilidad" class="text-xs text-emerald-600 font-bold hidden">✓ Captura cargada en memoria</div>
+                        <div class="flex gap-2 mb-1">
+                            <button type="button" onclick="document.getElementById('file_viab_cam').click()" class="flex-1 text-xs bg-blue-900 text-white p-2 rounded font-bold">📸 Tomar Foto</button>
+                            <button type="button" onclick="document.getElementById('file_viab_gal').click()" class="flex-1 text-xs bg-slate-500 text-white p-2 rounded font-bold">📁 Galería</button>
+                        </div>
+                        <input type="file" id="file_viab_cam" accept="image/*" capture="environment" onchange="procesarFotoUnica('foto_viabilidad', this)" class="hidden">
+                        <input type="file" id="file_viab_gal" accept="image/*" onchange="procesarFotoUnica('foto_viabilidad', this)" class="hidden">
+                        <div id="prev_foto_viabilidad" class="text-xs text-emerald-600 font-bold hidden">✓ Captura viabilidad cargada en memoria</div>
                     </div>
                 </div>
 
@@ -228,11 +238,11 @@ const PASS_CORRECTA = "ZuttaSolar2026*";
 const ITEMS_FOTOGRAFICOS = [
   "Vista Exterior del Predio", "Acceso al predio", "Ingreso al predio", "Nomenclatura", 
   "Ingreso acometida comercial", "Calibre acometida comercial", "Medidor", "Niveles de tensión del cliente", 
-  "Breaker totalizador del tablero", "Tablero de Circuitos", "Puesta a tierra", 
-  "Transformador Operador de red", "Celda de media tensión", "Número de cuenta y trafo", 
+  "Breaker totalizador del tablero de conexión ", "Tablero de Circuitos", "Puesta a tierra ", 
+  "Transformador Operador de red", "Celda de media tensión ", "Número de cuenta y número de trafo en S/E", 
   "Recibo de energía", "Ubicación de Paneles", "Recorrido ductería DC", 
   "Ubicación de equipos", "Recorrido ductería AC", "Ubicación tablero Inyección", 
-  "Vista Aérea General", "Vista Aérea Ubicación de Módulos", "Otros (Tablero/Planta Eléctrica)"
+  "Vista Aérea General", "Vista Aérea Ubicación de Páneles", "Otros (Tablero de circuitos, Celda de media tensión, Transferencia, Planta Eléctrica etc)"
 ];
 
 let bancoFotosBase64 = {};
@@ -285,6 +295,7 @@ function obtenerUbicacion() {
     }
 }
 
+// Renderizado de doble botón para evitar fallas del sistema operativo móvil
 function renderizarCamposFotos() {
     const contenedor = document.getElementById("contenedor-fotos-dinamicas");
     contenedor.innerHTML = "";
@@ -295,10 +306,14 @@ function renderizarCamposFotos() {
         const wrapper = document.createElement("div");
         wrapper.className = "p-3 bg-slate-50 border rounded-lg space-y-2 shadow-inner";
         
-        // El truco para activar menú híbrido en móviles es un input limpio con accept="image/*" sin modificadores restrictivos directos
         wrapper.innerHTML = `
             <label class="block text-xs font-bold text-slate-800 uppercase tracking-wider">${indexItem + 1}. ${nombreItem}</label>
-            <input type="file" accept="image/*" onchange="procesarColaFotos(${indexItem}, this)" class="w-full text-xs text-slate-600 file:mr-2 file:py-1.5 file:px-3 file:rounded file:border-0 file:text-xs file:font-bold file:bg-blue-900 file:text-white">
+            <div class="flex gap-2">
+                <button type="button" onclick="document.getElementById('cam_${indexItem}').click()" class="flex-1 text-xs bg-blue-900 text-white p-2 rounded font-bold flex justify-center items-center gap-1">📸 Cámara</button>
+                <button type="button" onclick="document.getElementById('gal_${indexItem}').click()" class="flex-1 text-xs bg-slate-500 text-white p-2 rounded font-bold flex justify-center items-center gap-1">📁 Galería</button>
+            </div>
+            <input type="file" id="cam_${indexItem}" accept="image/*" capture="environment" onchange="procesarColaFotos(${indexItem}, this)" class="hidden">
+            <input type="file" id="gal_${indexItem}" accept="image/*" onchange="procesarColaFotos(${indexItem}, this)" class="hidden">
             <div id="galeria-prev-${indexItem}" class="flex gap-1.5 flex-wrap pt-1"></div>
         `;
         contenedor.appendChild(wrapper);
@@ -331,6 +346,7 @@ function procesarColaFotos(indexItem, inputElement) {
             bancoFotosBase64[indexItem][indiceLibre] = canvas.toDataURL('image/jpeg', 0.75).split(',')[1];
             actualizarMiniaturasVista(indexItem);
             alertarAutoguardado();
+            inputElement.value = "";
         }
         img.src = e.target.result;
     }
@@ -376,6 +392,7 @@ function procesarFotoUnica(llaveKey, inputElement) {
             documentosUnicos[llaveKey] = canvas.toDataURL('image/jpeg', 0.75).split(',')[1];
             document.getElementById("prev_" + llaveKey).classList.remove("hidden");
             alertarAutoguardado();
+            inputElement.value = "";
         }
         img.src = e.target.result;
     }
@@ -386,7 +403,7 @@ async function enviarFormulario(event) {
     event.preventDefault();
     const btn = document.getElementById("btnEnviar");
     btn.disabled = true;
-    btn.innerText = "Empaquetando datos...";
+    btn.innerText = "Empaquetando levantamiento...";
 
     const formData = new URLSearchParams();
     
@@ -403,19 +420,22 @@ async function enviarFormulario(event) {
     
     inputsText.forEach(id => {
         const el = document.getElementById(id);
-        if (el) formData.append(id, el.value);
+        if (el && el.value) formData.append(id, el.value);
     });
     
+    // BLINDAJE ANTIFALLO: Solo se adjuntan los campos con contenido real. Las celdas vacías no viajan.
     ITEMS_FOTOGRAFICOS.forEach((_, indexItem) => {
         for (var k = 0; k < 5; k++) {
-            var campoLlave = "foto_" + indexItem + "_" + (k + 1);
-            var b64Data = bancoFotosBase64[indexItem][k] || "";
-            formData.append(campoLlave, b64Data);
+            var b64Data = bancoFotosBase64[indexItem][k];
+            if (b64Data && b64Data.trim() !== "") {
+                var campoLlave = "foto_" + indexItem + "_" + (k + 1);
+                formData.append(campoLlave, b64Data);
+            }
         }
     });
     
-    formData.append("foto_diagrama", documentosUnicos.foto_diagrama || "");
-    formData.append("foto_viabilidad", documentosUnicos.foto_viabilidad || "");
+    if (documentosUnicos.foto_diagrama) formData.append("foto_diagrama", documentosUnicos.foto_diagrama);
+    if (documentosUnicos.foto_viabilidad) formData.append("foto_viabilidad", documentosUnicos.foto_viabilidad);
 
     btn.innerText = "Sincronizando con Google Cloud...";
 
