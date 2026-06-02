@@ -166,8 +166,6 @@ function procesarFoto(tipo, input) {
             canvas.height = height;
             
             const ctx = canvas.getContext('2d');
-            ctx.fillStyle = "#FFFFFF";
-            ctx.fillRect(0, 0, width, height);
             ctx.drawImage(img, 0, 0, width, height);
             
             const dataURL = canvas.toDataURL('image/jpeg', 0.7);
@@ -179,12 +177,14 @@ function procesarFoto(tipo, input) {
     reader.readAsDataURL(file);
 }
 
+// CORRECCIÓN INTERNA DE DATOS PARA HACER MATCH CON EL APPS SCRIPT
 async function enviarFormulario(event) {
     event.preventDefault();
     const btn = document.getElementById("btnEnviar");
     btn.disabled = true;
     btn.innerText = "Sincronizando con Google...";
 
+    // Usamos URLSearchParams para pasar los datos estructurados como un formulario tradicional
     const formData = new URLSearchParams();
     formData.append("id_visita", document.getElementById("id_visita").value);
     formData.append("tipo_instalacion", document.getElementById("tipo_instalacion").value);
@@ -196,12 +196,13 @@ async function enviarFormulario(event) {
     formData.append("tipo_red", document.getElementById("tipo_red").value);
     formData.append("breaker_principal", document.getElementById("breaker_principal").value);
     
+    // Enviamos cada string Base64 por separado mapeándolo a su variable correspondiente en Code.gs
     formData.append("foto_recibo", fotosBase64.recibo || "");
     formData.append("foto_tablero", fotosBase64.tablero || "");
     formData.append("foto_techo", fotosBase64.techo || "");
 
     try {
-        // DIAGNÓSTICO ACTIVO: Forzamos CORS para leer la respuesta interna real del servidor de Google
+        // Habilitamos el modo 'cors' para interceptar respuestas JSON o textos reales de error
         const response = await fetch(URL_APPS_SCRIPT, {
             method: 'POST',
             mode: 'cors',
@@ -217,13 +218,12 @@ async function enviarFormulario(event) {
             localStorage.clear();
             window.location.reload();
         } else {
-            // Te muestra en pantalla la línea exacta donde Apps Script falló por dentro
-            alert("⚠️ FALLO INTERNO EN APPS SCRIPT:\n\n" + resJson.message);
+            alert("⚠️ ERROR EN EL BACKEND DE GOOGLE:\n\n" + resJson.message);
             btn.disabled = false;
             btn.innerText = "🚀 Finalizar y Enviar a Google";
         }
     } catch (error) {
-        alert("❌ ERROR DE RED O AUTORIZACIÓN CORS:\n\n" + error.message + "\n\nSuele ocurrir si el script no ha sido autorizado manualmente en la consola de Google.");
+        alert("❌ FALLO DE RED / AUTORIZACIÓN CORS:\n\n" + error.message);
         btn.disabled = false;
         btn.innerText = "🚀 Finalizar y Enviar a Google";
     }
